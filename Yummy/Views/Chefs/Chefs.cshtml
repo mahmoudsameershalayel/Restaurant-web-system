@@ -1,0 +1,29 @@
+﻿@model List<Yummy.Data.ApplicationUser>
+<!-- ======= Chefs Section ======= -->
+<section id="chefs" class="chefs section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Chefs</h2>
+            <p>Our <span>Proffesional</span> Chefs</p>
+        </div>
+        <div class="row gy-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="chef-member">
+                        <div class="member-img">
+                            <img src="~/Images/@item.ImageName" class="img-fluid" alt="">
+                        </div>
+                        <div class="member-info">
+                            <h4>@item.FirstName @item.LastName</h4>
+                            <span>@item.JopTitle</span>
+                            <p>@item.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- End Chefs Member -->
+        </div>
+    </div>
+</section><!-- End Chefs Section -->

@@ -1,0 +1,33 @@
+﻿<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="logo d-flex align-items-center me-auto me-lg-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1>Yummy<span>.</span></h1>
+        </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="About" asp-action="About">About</a></li>
+                <li><a asp-area="" asp-controller="Menu" asp-action="Menu">Menu</a></li>
+                <li><a asp-area="" asp-controller="Events" asp-action="Events">Events</a></li>
+                <li><a asp-area="" asp-controller="Chefs" asp-action="Chefs">Chefs</a></li>
+                <li><a asp-area="" asp-controller="Gallery" asp-action="Gallery">Gallery</a></li>
+                <li><a asp-area="" asp-controller="Contact" asp-action="Contact">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Login</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                        <li><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+                        <li><a asp-area="Chef" asp-controller="Home" asp-action="Index">Chef</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav><!-- .navbar -->
+        <a class="btn-book-a-table" asp-area="" asp-controller="Booking" asp-action="BookTable">Book a Table</a>
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    </div>
+</header><!-- End Header -->

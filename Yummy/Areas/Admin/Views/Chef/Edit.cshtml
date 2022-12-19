@@ -1,0 +1,157 @@
+﻿@model EditChefVM
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using Microsoft.AspNetCore.Localization;
+@inject IViewLocalizer _localizer;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&family=IBM+Plex+Sans:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="text-center">
+        <h3 class="EDIT pt-5">@_localizer["editChef"]</h3>
+    </div>
+    <div class="d-flex justify-content-center">
+        <form method="POST" enctype="multipart/form-data">
+            <div>
+                <label class="form-label">@_localizer["email"]</label>
+                <input type="email" class="form-control" placeholder="Enter Email" asp-for="Email">
+            </div>
+
+            <div>
+                <label class="form-label">@_localizer["password"]</label>
+                <input type="password" class="form-control" placeholder="Enter password" asp-for="Password">
+            </div>
+
+            <div>
+                <label class="form-label">@_localizer["username"]</label>
+                <input type="text" class="form-control " placeholder="Enter User Name" asp-for="UserName">
+            </div>
+
+
+            <div>
+                <label class="form-label">@_localizer["firstName"]</label>
+                <input type="text" class="form-control " placeholder="Enter First Name" asp-for="FirstName">
+            </div>
+            <div>
+                <label class="form-label">@_localizer["lastName"]</label>
+                <input type="text" class="form-control " placeholder="Enter First Name" asp-for="LastName">
+            </div>
+            <div>
+                <label class="form-label">@_localizer["jopTitle"]</label>
+                <input type="text" class="form-control " placeholder="Enter Job Tittel" asp-for="JopTitle">
+            </div>
+
+            <div>
+                <label class="form-label">@_localizer["description"]</label>
+                <input type="text" class="form-control " placeholder="Enter Description" asp-for="Description">
+            </div>
+            <label class="form-label">@_localizer["selectImage"]</label>
+            <div class="input-group w-100 mb-3">
+                <input type="file" class="form-control " id="inputGroupFile02" placeholder="Select img" asp-for="Image">
+            </div>
+            <input type="submit" value="Edit" class="btn btn-Sumbit w-100 mt-3 " />
+        </form>
+    </div>
+</body>
+</html>
+@section Styles{
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #0000;
+            font-family: 'Cairo', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+
+
+        .FIND {
+            font-family: 'Poppins', sans-serif;
+            font-size: 35px;
+        }
+
+
+
+        .EDIT {
+            font-family: 'Poppins', sans-serif;
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .btn-Sumbit {
+            background-color: #1F485B;
+            color: white;
+            font-size: 20px;
+        }
+
+    </style>
+}
+    @section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+
+    </script>
+}
+    @*
+<div asp-validation-summary="All" class="text-danger"></div>
+<form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input type="email" asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input type="password" asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <input type="text" asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input type="text" asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input type="text" asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JopTitle"></label>
+        <input type="text" asp-for="JopTitle" class="form-control" />
+        <span asp-validation-for="JopTitle"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input type="text" asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <img src="~/Images/@Model.ImageName" style="max-width:100px;" class="img-thumbnail" />
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input type="file" asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image"></span>
+    </div><br />
+    <div class="d-flex justify-content-center">
+        <input type="submit" value="Edit" class="btn btn-outline-warning btn-lg" />
+    </div>
+</form>
+*@

@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+@inject IViewLocalizer _localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @@media (max-width: 576px) {
+            .form-select {
+                width: 100%;
+            }
+
+            #lang {
+                width: 100%;
+                margin-top: 5px;
+            }
+        }
+
+        @@media (min-width: 576px) {
+            .form-select {
+                width: 100%;
+            }
+
+            #lang {
+                width: 100%;
+            }
+
+            #lang {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+
+        @@media (min-width: 768px) {
+            .form-select {
+                width: 100%;
+            }
+
+            #lang {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+
+        @@media (min-width: 992px) {
+            .form-select {
+                width: 15%;
+            }
+
+            #lang {
+                width: 100%;
+                margin-top: 0px;
+                margin-left: 5px;
+            }
+        }
+
+        @@media (min-width: 1200px) {
+            .form-select {
+                width: 300%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form id="selectLanguage" asp-controller="Home" asp-area="" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl" method="POST" class="form-horizontal" role="form">
+            <div class="d-sm-inline-flex m-2">
+                <select name="culture" asp-for="@requestCulture.RequestCulture.UICulture.NativeName" asp-items="cultureItems" class="form-select form-select " >
+                </select>
+                <input type="submit" value="Change" class="btn btn-danger me-2 " id="lang" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+

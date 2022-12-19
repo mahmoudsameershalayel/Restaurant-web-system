@@ -1,0 +1,131 @@
+﻿@model ChefVM
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using Microsoft.AspNetCore.Localization;
+@inject IViewLocalizer _localizer;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="d-sm-none d-md-block col-md-6 col-lg-6">
+                <div class="bg-img">
+                    <div class="text-center">
+                        <div class="pt-5">
+                            <span><img src="~/img/user1.jpg" alt="" style="width:100px;"></span>
+                            <span class="code text-white">@_localizer["addChef"]</span>
+                        </div>
+                        <img class="img-fluid mt-5 pt-5" src="~/img/Illustration.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-1"></div>
+
+            <div class="col-md-6 col-lg-4 ">
+                <div class="text-center pt-5">
+                    <h2 class="Register">@_localizer["createNow"]</h2>
+                </div>
+                <form method="POST" asp-action="Add" enctype="multipart/form-data">
+                    <div class="mb-2">
+                        <label class="form-label">@_localizer["firstName"]</label>
+                        <input asp-for="FirstName" type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">@_localizer["lastName"]</label>
+                        <input asp-for="LastName" type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">@_localizer["userName"]</label>
+                        <input asp-for="UserName" type="text" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">@_localizer["email"]</label>
+                        <input asp-for="Email" type="email" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">@_localizer["password"]</label>
+                        <input asp-for="Password" type="password" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">@_localizer["jopTitle"]</label>
+                        <input asp-for="JopTitle" type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">@_localizer["description"]</label>
+                        <input asp-for="Description" type="text" class="form-control">
+                    </div>
+
+                    <label class="form-label">@_localizer["uploadImage"]</label>
+
+                    <div class="input-group mb-3">
+                        <input asp-for="Image" type="file" class="form-control" id="inputGroupFile02">
+                    </div>
+                    <input type="submit" class="btn mt-2 w-100" id="btn-Register" value="@_localizer["create"]" />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+@section Styles{
+    <style>
+        body {
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .bg-img {
+            background-image: url('/img/bg-left.png');
+            height: 120vh;
+        }
+
+        .code {
+            font-size: 32px;
+            font-family: 'SFProDisplay-Regular';
+        }
+
+        .Register {
+            color: #242424;
+            font-size: 32px;
+            font-family: 'Zen Kaku Gothic Antique';
+        }
+
+        .form-control {
+            border: 0px solid white;
+            border-bottom: 1px solid #ddd;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        label {
+            color: #212121;
+            font-family: 'Zen Kaku Gothic Antique';
+        }
+
+        #btn-Register {
+            background-color: #5C54B1;
+            color: white;
+        }
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+}
+    @section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+}

@@ -1,0 +1,97 @@
+﻿@model Yummy.Data.ApplicationUser
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <main class="m-3">
+        <div class="pagetitle">
+            <h1>Admin Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item active">Admin Dashboard</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+        <section class="section dashboard">
+            <div class="row">
+                <!-- Left side columns -->
+                <div class="col-lg-8">
+                    <div class="row">
+                        <!-- Sales Card -->
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="animate__animated animate__zoomIn card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Events</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ps-3">
+                                            <h6 class="card-title">@ViewBag.TotalEvents<span> | Events</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="animate__animated animate__zoomIn card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Chefs</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ps-3">
+                                            <h6 class="card-title">@ViewBag.TotalChefs<span> | Chefs</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side columns -->
+                <div class="col-lg-4">
+
+                    <!-- Recent Activity -->
+
+                    <div class="card" style="width:25rem;">
+                        <img src="~/img/ma.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Admin Profile</h5>
+
+                           <p class="card-text">
+                                <span>ID:</span>
+                                <span>@Model.Id</span>
+                            </p>
+
+                            <p class="card-text">
+                                <span>First Name :</span>
+                                <span>@Model.FirstName</span>
+                            </p>
+
+                            <p class="card-text">
+                                <span>Last Name :</span>
+                                <span>@Model.LastName</span>
+                            </p>
+
+                            <p class="card-text">
+                                <span>Email :</span>
+                                <span>@Model.Email</span>
+                            </p>
+
+
+                        </div>
+                    </div><!-- End Recent Activity -->
+
+                </div><!-- End Right side columns -->
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
+@* *@

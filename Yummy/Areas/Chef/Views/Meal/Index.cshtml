@@ -1,0 +1,78 @@
+﻿@model List<Meal>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div id="PlaceHolderHere"></div>
+<a class="btn btn-primary mt-3" asp-area="Chef" asp-controller="Meal" asp-action="Add">Add</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>
+                    <a class="btn btn-primary" asp-area="Chef" asp-controller="Meal" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-warning" asp-area="Chef" asp-controller="Meal" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn-delete btn btn-danger" asp-area="Chef" asp-controller="Meal" asp-action="Delete" asp-route-id="@item.Id" data-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@section Styles{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.29/dist/sweetalert2.min.css" />
+}
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.29/dist/sweetalert2.all.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $(".btn-delete").on("click", function(e) {
+                $this = $(this);
+                var id = $(this).attr("data-id");
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "@Url.Action("Delete","Meal", new { area = "Chef"})/" + id,
+                            type: 'DELETE',
+                            success: function(result) {
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                )
+                                console.log($this.closest("tr").remove());
+                            }
+                        });
+                    }
+                })
+                e.preventDefault();
+            });
+        })
+
+    </script>
+}

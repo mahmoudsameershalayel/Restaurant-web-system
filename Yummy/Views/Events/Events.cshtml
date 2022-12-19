@@ -1,0 +1,31 @@
+﻿@model List<Events>
+<section id="events" class="events">
+    <div class="container-fluid" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Events</h2>
+            <p>Share <span>Your Moments</span> In Our Restaurant</p>
+        </div>
+       
+        <div class="slides-@Model.Count" swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(/Images/@item.ImageName)">
+                        <h3>@item.Title</h3>
+                        <div class="price align-self-start">$@item.Price</div>
+                        <p class="description">
+                            @item.Des
+                        </p>
+                    </div>
+                }
+                <!-- End Event item -->
+
+
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section><!-- End Events Section -->

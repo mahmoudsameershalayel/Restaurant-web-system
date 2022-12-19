@@ -1,0 +1,40 @@
+﻿@model Aboutarticle
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    /* increase height of ckeditor*/
+    .ck-editor__editable_inline {
+        min-height: 200px;
+    }
+</style>
+<div class="container mt-5">
+    <form asp-controller="About" asp-action="Add" method="POST">
+        <div class="form-group">
+            <label>Article Title :</label>
+            <input asp-for="ArticleTitle" type="text" />
+        </div>
+        <div class="form-group">
+            <label>Article Boady :</label>
+            <textarea asp-for="ArticleBody" id="description"></textarea>
+        </div>
+        <div class="d-flex justify-content-center">
+            <input class="btn btn-primary" id="Submit1" type="submit" value="submit" />
+        </div>
+    </form>
+</div>
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        $(document).ready(function() {
+            ClassicEditor
+                .create(document.getElementById('description'))
+                .then(editor => {
+                    console.log(editor);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script>
+}

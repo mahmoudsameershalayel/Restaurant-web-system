@@ -1,0 +1,33 @@
+﻿@model AddMealWithVM
+@using Microsoft.AspNetCore.Identity
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input type="number" asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Ingredients"></label>
+        <input type="text" asp-for="Ingredients" class="form-control" />
+        <span asp-validation-for="Ingredients"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input type="file" asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId"></label>
+        <select class="form-select" asp-for="CategoryId" asp-items="Model._categories"></select>
+        <span asp-validation-for="CategoryId"></span>
+    </div>
+    <input type="submit" value="Add" class="btn btn-success" />
+</form>

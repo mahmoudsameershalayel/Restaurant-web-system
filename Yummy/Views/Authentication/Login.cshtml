@@ -1,0 +1,115 @@
+﻿@model LoginVM
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+    string ReturnUrl = ViewData["ReturnUrl"] as string;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <style>
+        body {
+            overflow-y: hidden;
+        }
+
+        .top {
+            padding-top: 50px;
+        }
+
+        .uBrand {
+            color: #406678;
+            font-size: 35px;
+        }
+
+        .welcome {
+            color: #757575;
+            font-size: 20px;
+        }
+
+        .Continue {
+            color: #424242;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        label {
+            color: #212121;
+            font-size: 16px;
+            font-family: 'Zen Kaku Gothic Antique';
+        }
+
+        .btn-sumbit {
+            background-color: #84BDC2;
+        }
+
+        .form-control {
+            background-color: #F5F5F5;
+        }
+
+
+        .logo {
+            width: 40px;
+        }
+
+        .loginin {
+            color: #406678;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 ">
+                <div class="top">
+
+                    <div class="pt-5">
+                        <span><img class="logo" src="./img/Group.png" alt=""></span>
+                        <span class="loginin">Login</span>
+                    </div>
+
+                    <p class="welcome mt-3">
+                        WELCOME BACK 👋🏻
+                    </p>
+
+                    <p class="Continue">
+                        Continue to your Account.
+                    </p>
+
+                    <form method="POST" asp-action="Login">
+                        <div asp-validation-summary="All"></div>
+                        <input type="hidden" asp-for="@ReturnUrl" />
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="please write Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="please write Password">
+                        </div>
+
+                        <button type="submit" class="btn btn-sumbit text-white w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="secimg d-sm-none d-md-block col-md-6 col-lg-6">
+                <img class="imgbg img-fluid pt-2 " src="img/bg.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+</html>

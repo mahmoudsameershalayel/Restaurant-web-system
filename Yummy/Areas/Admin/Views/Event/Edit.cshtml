@@ -1,0 +1,40 @@
+﻿@model EditEventVM
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container">
+    <h1>Edit</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label asp-for="Title"></label>
+        <input type="text" asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title"></span>
+        <label asp-for="Price"></label>
+        <input type="number" asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price"></span>
+        <label>Description</label>
+        <input type="text" asp-for="Des" class="form-control" />
+        <span asp-validation-for="Des"></span>
+        <label asp-for="EventDate"></label>
+        <input type="text" asp-for="EventDate" class="form-control datepicker" />
+        <label asp-for="Image"></label><br />
+        <img src="~/Images/@Model.ImageName" style="max-width:100px;" class="img-thumbnail" />3
+        <br />
+        <input type="file" asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image"></span><br />
+        <div class="d-flex justify-content-center">
+            <input class="btn btn-outline-warning btn-lg" type="submit" value="Edit" />
+        </div>
+    </form>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+                orientation: "bottom",
+                format: "dd/mm/yyyy"
+            });
+        });
+    </script>
+}
