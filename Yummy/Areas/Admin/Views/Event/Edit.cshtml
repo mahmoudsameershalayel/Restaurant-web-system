@@ -17,14 +17,14 @@
         <input type="text" asp-for="Des" class="form-control" />
         <span asp-validation-for="Des"></span>
         <label asp-for="EventDate"></label>
-        <input type="text" asp-for="EventDate" class="form-control datepicker" />
+        <input type="date" asp-for="EventDate" class="form-control datepicker" />
         <label asp-for="Image"></label><br />
-        <img src="~/Images/@Model.ImageName" style="max-width:100px;" class="img-thumbnail" />3
+        <img src="~/Images/@Model.ImageName" style="max-width:100px;" class="img-thumbnail" />
         <br />
         <input type="file" asp-for="Image" class="form-control" />
         <span asp-validation-for="Image"></span><br />
         <div class="d-flex justify-content-center">
-            <input class="btn btn-outline-warning btn-lg" type="submit" value="Edit" />
+            <input class="btn btn-warning btn-lg" type="submit" value="Edit" />
         </div>
     </form>
 </div>

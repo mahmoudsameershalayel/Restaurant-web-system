@@ -78,7 +78,7 @@ namespace Yummy.Areas.Admin.Controllers
             }
             return View(chef);
         }
-        [HttpPut]
+        [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
